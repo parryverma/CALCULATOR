@@ -21,15 +21,41 @@ key1.addEventListener("click", function() {
 
 });
 
-// key1.onclick = function() {
-//     display.innerHTML = '1';
-// }
+addEventListener('keypress', (event) => {
+   
+    if (event.key >= '0' && event.key <= '9') {
+        display.innerText += `${event.key}`;
+        
+        event.preventDefault();
+        
+        
+        console.log(event.key);
+    }
+    
+   
+    else if (['+', '-', '*', '/'].includes(event.key)) {
+        display.innerText += `${event.key}`;
+     
+        event.preventDefault();
+        
+     
+        console.log(event.key);
+    }
+    
 
-
-
-// function changeText() {
-//     var headingElement = document.getElementsByClassName('key1');
-//     display.innerHTML = 'Coding Ninjas';
-//   }
-
-//   key1.addEventListener('click', changeText);
+    else if (event.key === 'Enter') {
+        display.innerText = eval(display.innerText) 
+        
+        event.preventDefault();
+        
+        
+        console.log('Enter');
+    }
+    
+ 
+    else if (event.key === 'c') {
+        display.innerText= ""
+            event.preventDefault();
+        
+    }
+})
